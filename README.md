@@ -1,6 +1,6 @@
-# RESTify Basics
+# RESTify API Basics
 
-A simple API developed using the *restify* package to gain a basic insight of the restify package.
+A simple API developed using the <b>restify</b> package to gain a basic insight of the how the *restify* package works
 
 ## Prerequisites
 
@@ -60,4 +60,4 @@ To manage multiple NodeJs versions, its recommended to use Node Version Manager
     curl --request DELETE http://127.0.0.1:3000/api/products/101
     ```
 
-To use Postman, remember to set the *Content-Type* header to *application/json* and pass the data as *RAW* under the *Body* tab.
+To use Postman, remember to set the <b>Content-Type</b> header to <b>application/json</b> and pass the data as *RAW* JSON under the *Body* tab
