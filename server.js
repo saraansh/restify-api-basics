@@ -1,5 +1,7 @@
 var restify = require('restify'),
+	corsMiddleware = require('restify-cors-middleware'),
 	products = require('./products'),
+	host = process.env.HOST || '127.0.0.1',
 	port = process.env.PORT || 3000;
 
 // Configuring a restify server
@@ -7,7 +9,17 @@ var server = restify.createServer({
 	name: "Test Restify Server"
 });
 
-// Adding middleware to the server
+// Configuring cors for handling CORS issues
+// const cors = corsMiddleware({
+//     'origins': ['*']
+// });
+// server.pre(cors.preflight);
+// server.use(cors.actual);
+
+// Adding middleware and JSON handlers to the server
+server.use(restify.plugins.acceptParser(server.acceptable));
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
 server.use(function(req, res, next) {
 	console.log(req.method + ' ' + req.url);
 	return next();
@@ -30,6 +42,8 @@ server.del('/api/products/:id', products.del);
 */
 
 // Start the server
-server.listen(port, function(){
+server.listen(port, host, function(){
 	console.log('API Running at - ' + port);
+	console.log(host);
+	console.log(port);
 });
