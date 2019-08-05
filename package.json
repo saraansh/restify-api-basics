@@ -1,0 +1,14 @@
+{
+    "name": "restify-tester",
+    "version": "1.0.0",
+    "description": "Testing restify by creating a simple products API",
+    "author": "Saraansh",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "dotenv": "~8.0.0",
+        "restify": "^8.3.3"
+    }
+}
